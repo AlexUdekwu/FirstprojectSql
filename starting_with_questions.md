@@ -113,9 +113,9 @@ When not ordering the products sold by editing and grouping the original names, 
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
-```
-SQL Queries:
 
+SQL Queries:
+```
 SELECT alls.city, alls.country,
 SUM(alls.productprice*sr.total_ordered) AS total_revenue
 FROM all_sessions AS alls
