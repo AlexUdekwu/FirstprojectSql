@@ -2,7 +2,7 @@
 
 ## Project/Goals
 
-To examine if the product revenue, name, category patterns can be extrapolated from the website data provided? What are the patterns with respect to user, country, and/or city.
+To identify the relationship between the tables on E-commerce database so to examine if the product revenue, name, category patterns can be extrapolated from the website data provide and  What are the patterns with respect to user, country, and/or city.
 
 
 ## Process
@@ -161,14 +161,12 @@ The transactionrevenue column is redundant in all_sessions and all the informati
  
   VARCHAR were shortened to meet the needs of table column with characters and values far above that were reformatted or removed. Remove leading spaces in product names using trim. 
   
-  A lot of the product names and categories were cleaned up. 
   
   Verified there are no locations with cities without countries in all_sessions table. Fixed fullvisitorid with country and city, filled in NULL information if there are missing cities or there are two countries per single id. 
   
   Found some cities which have more than one distinct country, and corrected this in cases where this wasn't true. Sentimentscore was converted to a scale betwen 0 and 100.
   
-   Duplicate rows are removed from analytics when transferring to new_analytics. Instead of millions of rows there are now over 200000.
-
+   
 
 ## Challenges 
 
@@ -176,13 +174,11 @@ More work needs to go into gathering data to determine if there are multiple ord
 
 There are five main tables now, all_sessions, new_analytics, product_information, product_order, and fullvisitorid_location. In order to preserve data I still have duplicate product_sku's, fullvisitorid's and visitid's and was not able to get to 3NF.
 
-More work also needs to be done to label fullvisitorid's with a country and city. There is still 116144 fullvisitorid's without a country.
 
 ## Future Goals
 (what would you do if you had more time?)
 Since an approximate estimate showed 99% of the revenue is going to countries and cities which are not listed more work needs to be done to fill in those values, as well as account for the missing revenue.
 Need to determine if all_sessions is undercounting revenue or new_analytics is overcounting.
 
-The purchase revenue data is a small snapshot of what the total global purchases done are, and as a result can have a false positive with what items are popular.
 
 More work needs to go into clarifying how much revenue is generated per visitid and to which country and city that revenue is coming from. After data is gathered on revenue, country and city, only then can new_analytics have visitid as its primary key.
